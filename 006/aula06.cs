@@ -9,9 +9,10 @@ class Aula05{
         Console.WriteLine("------------------------------------------------");
 
         double valorCompra = 5.50;
-        double valorVenda, lucro=0.1;
+        double valorVenda;
         string produto ="Pastel";
-
+        const double  lucro=0.1;
+        
         valorVenda = valorCompra + (valorCompra*lucro);
 
         Console.WriteLine("Produto.............:{0,15}", produto);
