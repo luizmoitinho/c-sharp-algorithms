@@ -84,7 +84,7 @@ namespace _001
         //Cronstrutor da classe
         ~Jogador()
         {
-            System.Console.WriteLine("Jogador \"{0}\" foi destuido!", this.nome);
+            System.Console.WriteLine("Jogador \"{0}\" foi destruido!", this.nome);
         }
 
         public string toString()
