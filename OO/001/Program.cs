@@ -22,10 +22,10 @@ namespace _001
 
                 j1 = new Jogador();
                 j2 = new Jogador();
-
-                Console.WriteLine(j1.nome);
+                j2.setEnergia(-110);
+                Console.WriteLine(j1.getNome());
                 Console.WriteLine(j1.toString());
-                Console.WriteLine(j2.nome);
+                Console.WriteLine(j2.getNome());
                 Console.WriteLine(j2.toString());
 
             }else if(opcao == 2){
@@ -39,6 +39,7 @@ namespace _001
 
                 Console.WriteLine("Player 1");
                 Console.WriteLine(j1.toString());
+                j2.setEnergia(100);
                 Console.WriteLine("Player 2");
                 Console.WriteLine(j2.toString());
 
@@ -55,9 +56,47 @@ namespace _001
     {
         private Random random = new Random();
         
-        public string nome;
-        public int energia;
-        public bool vida;
+        private string nome;
+        private int energia;
+        private bool vida;
+
+
+        public string getNome(){
+            return this.nome;
+        }
+        public void setNome(int energia){
+            this.energia = energia;
+        }
+
+        public int getEnergia(){
+            return this.energia;
+        }
+        public void setEnergia(int energia){
+            
+            if(energia < 0){
+                if(this.getEnergia() + energia < 0)
+                    this.energia = 0;
+                else
+                    this.energia += energia;
+
+            }
+            else{
+                  if(this.getEnergia() + energia > 100)
+                    this.energia = 100;
+                else
+                    this.energia += energia;
+            }
+
+        }
+
+
+        public bool getVida(){
+            return this.vida;
+        }
+        public void setVida(bool vida){
+            this.vida = vida;
+        }
+
 
         //Cronstrutor da classe
         public Jogador()
@@ -90,9 +129,9 @@ namespace _001
         public string toString()
         {
             return (
-                "Nome   : " + this.nome + "\n" +
-                "Energia: " + this.energia + "% \n" +
-                "Vivo   ? " + this.vida + "\n"
+                "Nome   : " + this.getNome() + "\n" +
+                "Energia: " + this.getEnergia() + "% \n" +
+                "Vivo   ? " + this.getVida() + "\n"
             );
         }
 
