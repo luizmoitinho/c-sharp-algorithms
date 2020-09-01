@@ -10,6 +10,10 @@ namespace _004
             c1.ligar(); 
             System.Console.WriteLine("Dados do veículo");
             System.Console.WriteLine(c1.tostring());
+            
+            CarroCombate cb = new CarroCombate();
+            System.Console.WriteLine("Carro de combate");
+            System.Console.WriteLine(cb.tostring());
 
         }   
     }
@@ -19,6 +23,10 @@ namespace _004
         private int velMax;
         private bool ligado;
         private int rodas;
+
+        public Veiculo(int rodas){
+            this.setRodas(rodas);
+        }
 
         public void ligar(){
             this.setLigado(true);
@@ -59,7 +67,7 @@ namespace _004
         private string nome;
         private string cor;
         
-        public Carro(string nome, string cor){
+        public Carro(string nome, string cor):base(4){
             this.desligar();
             this.setRodas(4);
             this.setVelMax(120);
@@ -91,8 +99,28 @@ namespace _004
                 "Cor.......: "+this.getCor() +"\n"+
                 "Vel.maxima: "+this.getVelMax() +"\n"+
                 "Rodas.....: "+this.getRodas() +"\n" + 
-                "Ligado....: "+this.getLigado() +"\n" 
+                "Ligado....: "+ ( this.getLigado() ? "Sim" : "Não" ) +"\n" 
             );
+        }
+
+    }
+
+    class CarroCombate:Carro{
+
+        private int municao;
+
+        public CarroCombate():base("Carro de combate","Verde"){
+            this.setMunicao(100);
+            this.setRodas(6);
+
+        }
+
+        public int getMunicao(){
+            return this.municao;
+        }
+
+        public void setMunicao(int municao){
+            this.municao = municao;
         }
 
     }
