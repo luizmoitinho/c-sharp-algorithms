@@ -16,8 +16,6 @@ namespace _006
             Ref = d2;
             Ref.info();
            
-
-
         }
     }
 
@@ -26,9 +24,7 @@ namespace _006
             System.Console.WriteLine("Construtor da classe base.");
         }
 
-        virtual public void info(){
-            System.Console.WriteLine("Base");
-        }
+        virtual public void info(){}
     }
 
     class Derivada1:Base{
