@@ -9,7 +9,7 @@ namespace _005
             Moto m = new Moto("Yamaha",110);
             System.Console.WriteLine("Dados da moto");
             System.Console.WriteLine(m.tostring());
-            
+        }
     }
 
     class Veiculo{
