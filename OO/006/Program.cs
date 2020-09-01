@@ -23,7 +23,7 @@ namespace _006
         }
 
     }
-
+    
     class Derivada2:Derivada1{
         public Derivada2(){
              System.Console.WriteLine("Construtor da classe derivada 2.");
