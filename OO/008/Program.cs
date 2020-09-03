@@ -10,13 +10,13 @@ namespace _008
             System.Console.WriteLine("Dados do carro");
             System.Console.WriteLine(veloster.toString());
             System.Console.WriteLine("===================================");
-            const int tamanhoPista = 20;
             System.Console.WriteLine("Teste de velocidade");
-            for(int i=1; i < tamanhoPista; i++ ){
+            for(int i=1; veloster.vAtual < veloster.vMax; i++ ){
                 veloster.acelerar(i);
+               
             }
             System.Console.WriteLine("\n# Linha de chegada!!! Desacelerando\n");
-            for(int i = veloster.getVelocidadeMaxima(); i >= 0 ; i-- ){
+            for(int i = veloster.vMax; i >= 0 ; i-- ){
                 veloster.frear();
             }
 
@@ -39,6 +39,21 @@ namespace _008
     sealed class Carro : Veiculo{
         private int velocidadeAtual;
         private int velocidadeMaxima;
+        public int vAtual { get{
+            return velocidadeAtual;
+            } 
+            set{
+                this.velocidadeAtual = value;
+            } 
+        }
+        public int vMax{ 
+            get {
+                return this.velocidadeMaxima;
+            } 
+            set{
+                this.velocidadeMaxima = value;
+            }
+        }
         private string nome;
 
         public Carro(string nome){
@@ -48,46 +63,24 @@ namespace _008
         }
 
         
-        public void setVelocidadeMax(int velocidadeMax){
-            this.velocidadeMaxima =  velocidadeMax;
-        }
-        public int getVelocidadeMaxima(){
-            return this.velocidadeMaxima;
-        }
-        
-        public void setVelocidadeAtual(int velocidadeAtual){
-            this.velocidadeAtual =  velocidadeAtual;
-        }
-        public int getVelocidadeAtual(){
-            return this.velocidadeAtual;
-        }
-
-
-        public void setNome(string nome){
-            this.nome =  nome;
-        }
-        public string getNome(){
-            return this.nome;
-        }
-
         override public void acelerar(int acelerar){
-            if(acelerar>0 && this.getVelocidadeAtual() <=120){
-                if(acelerar + this.getVelocidadeAtual() >= 120)
-                    this.setVelocidadeAtual(120);
+            if(acelerar>0 && vAtual <=120){
+                if(acelerar + vAtual >= 120)
+                    vAtual = 120;
                 else
-                    this.setVelocidadeAtual(this.getVelocidadeAtual() + acelerar);
+                    vAtual = vAtual + acelerar;
                 System.Console.WriteLine("Acelerando...");    
-                System.Console.WriteLine("Velocidade atual: {0}", this.getVelocidadeAtual());       
+                System.Console.WriteLine("Velocidade atual: {0}", vAtual);       
             }
 
 
         }
 
         override public void frear(){
-            if(this.getVelocidadeAtual()-2>0){
+            if(vAtual-2>=0){
                 System.Console.WriteLine("Reduzindo a velocidade em -2");
-                System.Console.WriteLine("Velocidade atual: {0}", this.getVelocidadeAtual());  
-                this.setVelocidadeAtual(this.getVelocidadeAtual()-2);
+                System.Console.WriteLine("Velocidade atual: {0}", vAtual);  
+                vAtual = vAtual-2;
             }
            
         }
