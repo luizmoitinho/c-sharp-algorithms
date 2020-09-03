@@ -39,6 +39,30 @@ namespace _008
     sealed class Carro : Veiculo{
         private int velocidadeAtual;
         private int velocidadeMaxima;
+
+        private int[] marchas = new int[5]{1,2,3,4,5};
+        public int marchaAtual{
+            get{
+                if(this.velocidadeAtual<=15)
+                   return marchas[0];
+
+                else if(this.velocidadeAtual <=45 )
+                   return marchas[1];
+
+                else if(this.velocidadeAtual < 80 )
+                   return marchas[2];
+
+                 else if(this.velocidadeAtual >=80 && this.velocidadeAtual > 99 )
+                    return marchas[3];
+
+                else
+                    return marchas[4];
+                
+            } 
+            set{} 
+        }
+
+
         public int vAtual { get{
             return velocidadeAtual;
             } 
@@ -69,8 +93,9 @@ namespace _008
                     vAtual = 120;
                 else
                     vAtual = vAtual + acelerar;
-                System.Console.WriteLine("Acelerando...");    
-                System.Console.WriteLine("Velocidade atual: {0}", vAtual);       
+                System.Console.WriteLine("Acelerando......VrUUUuuuMMmm");    
+                System.Console.WriteLine("Marcha..........: {0}", marchaAtual);       
+                System.Console.WriteLine("Velocidade atual: {0}", vAtual);  
             }
 
 
@@ -90,6 +115,7 @@ namespace _008
                 "Nome..........: "+ this.nome +"\n"+
                 "Vel. atual....: "+ this.velocidadeMaxima +"\n"+
                 "Vel. Máxima...: "+ this.velocidadeMaxima +"\n"
+                
             );
         }
         
