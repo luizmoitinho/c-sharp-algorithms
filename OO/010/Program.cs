@@ -17,6 +17,15 @@ namespace _010
             this.cor = cor;
             this.ano = ano;
         }
+
+        public string info(){
+            return(
+                "Marca....:"+this.marca+"\n"+
+                "Modelo...:"+this.modelo+"\n"+
+                "Cor......:"+this.cor+"\n"+
+                "Ano......:"+this.ano+"\n"
+            );
+        }
         
     }
 
@@ -26,10 +35,7 @@ namespace _010
         {
             Console.WriteLine("Structs\n");
             Carro c1 = new Carro("Fiat","grand sien","branco",2017);
-            System.Console.WriteLine("Marca..: {0}",c1.marca);
-            System.Console.WriteLine("Modelo.: {0}",c1.modelo);
-            System.Console.WriteLine("Cor....: {0}",c1.cor);
-            System.Console.WriteLine("Ano....: {0}",c1.ano);
+             System.Console.WriteLine(c1.info());
 
         }
     }
